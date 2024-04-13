@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import styled from 'styled-components';
-import { IcLogo, IcAttack } from '../../../public/assets/icons';
+import { IcLogo } from '../../../public/assets/icons';
 import SendPushNotificationModal from '../Components/SendPushNotificationModal';
 
 export default function CCTVHome() {
