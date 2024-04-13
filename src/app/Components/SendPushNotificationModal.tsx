@@ -1,5 +1,7 @@
 'use client';
 
+import { postPushNotificationTrigger } from '../api/postPushNotificationTrigger';
+
 import styled from 'styled-components';
 // import { IcDeleteModal } from '../../../public/assets/icons';
 
@@ -12,6 +14,12 @@ export default function SendPushNotificationModal(
   props: AddCategoryModalProps,
 ) {
   const { isOpen, setIsOpen } = props;
+
+  const handlePushAgreement = async () => {
+    const result = await postPushNotificationTrigger();
+    console.log(result);
+    setIsOpen(false);
+  };
 
   return isOpen ? (
     <>
@@ -30,7 +38,7 @@ export default function SendPushNotificationModal(
           </p>
 
           <StButtonWrapper>
-            <button type="button" onClick={() => setIsOpen(false)}>
+            <button type="button" onClick={() => handlePushAgreement()}>
               푸시 알림 <br /> 보낼래요{' '}
             </button>
             <button type="button" onClick={() => setIsOpen(false)}>
