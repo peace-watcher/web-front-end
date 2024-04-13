@@ -1,7 +1,7 @@
 'use client';
 
 import styled from 'styled-components';
-import { IcDeleteModal } from '../../../public/assets/icons';
+// import { IcDeleteModal } from '../../../public/assets/icons';
 
 export interface AddCategoryModalProps {
   isOpen: boolean;
@@ -20,9 +20,7 @@ export default function SendPushNotificationModal(
           <StModalHeader>
             <h1>{'흉기난동이 감지되었습니다'}</h1>
 
-            <button onClick={() => setIsOpen(false)}>
-              <IcDeleteModal />
-            </button>
+            <button onClick={() => setIsOpen(false)}>x</button>
           </StModalHeader>
 
           <p>
