@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import styled from 'styled-components';
 import { IcDeleteModal } from '../../../public/assets/icons';
 
