@@ -1,10 +1,10 @@
 import axios from 'axios';
 
 const client = axios.create({
-  baseURL: 'http://3.34.74.202',
+  baseURL: 'https://3.34.74.202',
   headers: {
     'Content-type': 'application/json',
-    'Access-Control-Allow-Origin': 'http://3.34.74.202',
+    'Access-Control-Allow-Origin': 'https://3.34.74.202',
   },
 });
 
