@@ -31,11 +31,7 @@ export default function SendPushNotificationModal(
             <button onClick={() => setIsOpen(false)}>x</button>
           </StModalHeader>
 
-          <p>
-            어쩌구저쩌구어쩌꾸 지금 개 위험해 어떤 미친놈이 칼들고 돌아다님;;;;
-            어쩌구저쩌구어쩌꾸 지금 개 위험해 어떤 미친놈이 칼들고 돌아다님;;;;
-            어쩌구저쩌구어쩌꾸 지금 개 위험해 어떤 미친놈이 칼들고 돌아다님;;;;
-          </p>
+          <p>흉기난동이 감지되었습니다. 조치가 필요합니다.</p>
 
           <StButtonWrapper>
             <button type="button" onClick={() => handlePushAgreement()}>

@@ -1,5 +1,7 @@
-import CCTVHome from './pages/Home';
+import HomePage from './pages/HomePage';
 
-export default function Home() {
-  return <CCTVHome />;
+function Home() {
+  return <HomePage />;
 }
+
+export default Home;
