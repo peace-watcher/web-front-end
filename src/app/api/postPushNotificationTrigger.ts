@@ -1,10 +1,10 @@
 import axios from 'axios';
 
 const client = axios.create({
-  baseURL: 'https://3.34.74.202',
+  baseURL: 'https://peacewatcher.shop/alert',
   headers: {
     'Content-type': 'application/json',
-    'Access-Control-Allow-Origin': 'https://3.34.74.202',
+    'Access-Control-Allow-Origin': 'https://peacewatcher.shop/alert',
   },
 });
 
