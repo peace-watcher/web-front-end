@@ -4,6 +4,9 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import { IcLogo } from '../../../public/assets/icons';
 import SendPushNotificationModal from '../Components/SendPushNotificationModal';
+import demo from '../../../videos/demo.mp4';
+import Video from 'next-video';
+import BackgroundVideo from 'next-video/background-video';
 
 function HomePage() {
   const [timer, setTimer] = useState('00:00:00');
@@ -46,7 +49,8 @@ function HomePage() {
         </StHeader>
 
         <StVideoWrapper>
-          <video src={require('../../../public/assets/KnifeAttack.mp4')} />
+          {/* <Video src={demo} /> */}
+          <BackgroundVideo src={demo}></BackgroundVideo>
           <StCallPolice>
             <button type="button">경찰연동</button>
             <button
@@ -138,8 +142,8 @@ const StMenuWrapper = styled.section`
 const StVideoWrapper = styled.div`
   display: flex;
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: calc(100-8rem);
+  height: 91.5%;
 `;
 
 const StCallPolice = styled.aside`
