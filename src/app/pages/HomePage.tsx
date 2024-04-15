@@ -61,11 +61,10 @@ function HomePage() {
             src={demo}
           />
           <StCallPolice>
-            <button type="button">경찰연동</button>
-            <button type="button">
+            {/* <button type="button">
               수동으로 <br />
               푸시알림 보내기
-            </button>
+            </button> */}
           </StCallPolice>
         </StVideoWrapper>
       </div>
