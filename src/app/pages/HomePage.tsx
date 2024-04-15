@@ -53,7 +53,13 @@ function HomePage() {
         </StHeader>
 
         <StVideoWrapper>
-          <Video autoPlay={true} loop={false} controls={false} src={demo} />
+          <Video
+            autoPlay={true}
+            muted
+            loop={false}
+            controls={false}
+            src={demo}
+          />
           <StCallPolice>
             <button type="button">경찰연동</button>
             <button type="button">
