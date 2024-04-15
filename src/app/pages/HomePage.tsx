@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import { IcLogo } from '../../../public/assets/icons';
 import SendPushNotificationModal from '../Components/SendPushNotificationModal';
 import demo from '../../../videos/demo.mp4';
-import Video from 'next-video';
 import BackgroundVideo from 'next-video/background-video';
 
 function HomePage() {
