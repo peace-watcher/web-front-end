@@ -4,8 +4,9 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import { IcLogo } from '../../../public/assets/icons';
 import SendPushNotificationModal from '../Components/SendPushNotificationModal';
-import demo from '../../../videos/demo.mp4';
-import BackgroundVideo from 'next-video/background-video';
+import Video from 'next-video';
+import demo from 'https://peacewatcher.s3.ap-northeast-2.amazonaws.com/demo.mp4';
+import { truncate } from 'fs';
 
 function HomePage() {
   const [timer, setTimer] = useState('00:00:00');
@@ -31,7 +32,12 @@ function HomePage() {
 
   return (
     <StMain>
-      <StAside>
+      <StAside
+        onClick={() => {
+          console.log(isModalOpen);
+          setIsModalOpen(true);
+        }}
+      >
         <IcLogo />
         <StMenuWrapper>
           <button type="button">DashBoard</button>
@@ -48,17 +54,10 @@ function HomePage() {
         </StHeader>
 
         <StVideoWrapper>
-          {/* <Video src={demo} /> */}
-          <BackgroundVideo src={demo}></BackgroundVideo>
+          <Video autoPlay={true} loop={false} controls={false} src={demo} />
           <StCallPolice>
             <button type="button">경찰연동</button>
-            <button
-              type="button"
-              onClick={() => {
-                console.log(isModalOpen);
-                setIsModalOpen(true);
-              }}
-            >
+            <button type="button">
               수동으로 <br />
               푸시알림 보내기
             </button>
