@@ -6,7 +6,6 @@ import { IcLogo } from '../../../public/assets/icons';
 import SendPushNotificationModal from '../Components/SendPushNotificationModal';
 import Video from 'next-video';
 import demo from 'https://peacewatcher.s3.ap-northeast-2.amazonaws.com/demo.mp4';
-import { truncate } from 'fs';
 
 function HomePage() {
   const [timer, setTimer] = useState('00:00:00');
