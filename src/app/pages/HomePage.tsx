@@ -199,7 +199,8 @@ const StMenuWrapper = styled.section`
 const StVideoWrapper = styled.div`
   display: flex;
   position: relative;
-  width: calc(100-8rem);
+  width: 70rem;
+  /* width: calc(100-8rem); */
   height: 91.5%;
 `;
 
