@@ -6,6 +6,7 @@ import { IcLogo } from '../../../public/assets/icons';
 import SendPushNotificationModal from '../Components/SendPushNotificationModal';
 import demo from '../../../videos/demo.mp4';
 import BackgroundVideo from 'next-video/background-video';
+import RealTimeDetection from '../Components/RealtimeDetection';
 
 function HomePage() {
   const [timer, setTimer] = useState('00:00:00');
@@ -49,7 +50,8 @@ function HomePage() {
 
         <StVideoWrapper>
           {/* <Video src={demo} /> */}
-          <BackgroundVideo src={demo}></BackgroundVideo>
+          {/* <BackgroundVideo src={demo}></BackgroundVideo> */}
+          <RealTimeDetection />
           <StCallPolice>
             <button type="button">경찰연동</button>
             <button
