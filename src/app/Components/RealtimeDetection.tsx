@@ -3,7 +3,13 @@
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
-const RealTimeDetection: React.FC = () => {
+interface RealTimeDetectionProps {
+  isModalOpen?: boolean;
+  setIsModalOpen: (isOpen: boolean) => void;
+}
+const RealTimeDetection: React.FC<RealTimeDetectionProps> = ({
+  setIsModalOpen,
+}) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const imgRef = useRef<HTMLImageElement>(null);
   const wsRef = useRef<WebSocket | null>(null);
@@ -20,6 +26,16 @@ const RealTimeDetection: React.FC = () => {
     ws.onmessage = (event) => {
       if (imgRef.current) {
         imgRef.current.src = 'data:image/jpeg;base64,' + event.data;
+      }
+
+      // 특정 조건 충족 시 모달 창을 띄움
+      if (
+        event.data.includes('knife') ||
+        event.data.includes('fallen person') ||
+        event.data.includes('fork') ||
+        event.data.includes('person running away')
+      ) {
+        setIsModalOpen(true);
       }
     };
 

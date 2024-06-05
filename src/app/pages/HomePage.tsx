@@ -51,7 +51,7 @@ function HomePage() {
         <StVideoWrapper>
           {/* <Video src={demo} /> */}
           {/* <BackgroundVideo src={demo}></BackgroundVideo> */}
-          <RealTimeDetection />
+          <RealTimeDetection setIsModalOpen={setIsModalOpen} />
           <StCallPolice>
             <button type="button">경찰연동</button>
             <button
