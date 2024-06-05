@@ -1,6 +1,7 @@
 // components/RealTimeDetection.tsx
 
 import React, { useEffect, useRef } from 'react';
+import styled from 'styled-components';
 
 const RealTimeDetection: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -72,7 +73,7 @@ const RealTimeDetection: React.FC = () => {
             canvas.width,
             canvas.height,
           );
-          const dataUrl = canvas.toDataURL('image/jpeg', 0.5);
+          const dataUrl = canvas.toDataURL('image/jpeg', 0.8);
           const data = dataUrl.split(',')[1];
 
           console.log('Captured frame length:', data.length);
@@ -90,26 +91,37 @@ const RealTimeDetection: React.FC = () => {
   };
 
   return (
-    <div>
-      <video
+    <StWrapper>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <StImage
+        id="outputElement"
+        ref={imgRef}
+        style={{ border: '1px solid black' }}
+        alt="Real-time detection result"
+      />
+      <StVideo
         id="videoElement"
         ref={videoRef}
         width="640"
         height="480"
         style={{ border: '1px solid black' }}
         autoPlay
-      ></video>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        id="outputElement"
-        ref={imgRef}
-        width="640"
-        height="480"
-        style={{ border: '1px solid black' }}
-        alt="Real-time detection result"
       />
-    </div>
+    </StWrapper>
   );
 };
 
 export default RealTimeDetection;
+
+const StWrapper = styled.div`
+  padding: 5rem 5rem 5rem 15rem;
+`;
+const StVideo = styled.video`
+  /* visibility: hidden; */
+`;
+
+const StImage = styled.img`
+  width: 90%;
+  height: auto;
+  margin-bottom: 30rem;
+`;
