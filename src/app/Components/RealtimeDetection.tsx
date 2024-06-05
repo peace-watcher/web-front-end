@@ -56,8 +56,8 @@ const RealTimeDetection: React.FC = () => {
 
   const sendFrame = () => {
     const canvas = document.createElement('canvas');
-    canvas.width = 320;
-    canvas.height = 240;
+    canvas.width = 640;
+    canvas.height = 480;
     const context = canvas.getContext('2d');
 
     let frameCount = 0;
@@ -73,7 +73,7 @@ const RealTimeDetection: React.FC = () => {
             canvas.width,
             canvas.height,
           );
-          const dataUrl = canvas.toDataURL('image/jpeg', 0.8);
+          const dataUrl = canvas.toDataURL('image/jpeg', 0.5);
           const data = dataUrl.split(',')[1];
 
           console.log('Captured frame length:', data.length);
@@ -114,14 +114,15 @@ const RealTimeDetection: React.FC = () => {
 export default RealTimeDetection;
 
 const StWrapper = styled.div`
-  padding: 5rem 5rem 5rem 15rem;
+  padding: 5rem 5rem 5rem 10rem;
 `;
 const StVideo = styled.video`
   /* visibility: hidden; */
 `;
 
 const StImage = styled.img`
-  width: 90%;
+  width: 80%;
   height: auto;
+  /* height: 480px; */
   margin-bottom: 30rem;
 `;
