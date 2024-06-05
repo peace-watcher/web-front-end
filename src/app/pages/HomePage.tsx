@@ -1,16 +1,23 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import styled from 'styled-components';
 import { IcLogo } from '../../../public/assets/icons';
 import SendPushNotificationModal from '../Components/SendPushNotificationModal';
-import demo from '../../../videos/demo.mp4';
 import BackgroundVideo from 'next-video/background-video';
 import RealTimeDetection from '../Components/RealtimeDetection';
+import Video from 'next-video';
+import demo from 'https://peacewatcher.s3.ap-northeast-2.amazonaws.com/SeoHyeonStation_demo.mp4';
+// import Webcam from 'react-webcam';
 
 function HomePage() {
+  // const webcamRef = useRef(null);
+  const [videoUrl, setVideoUrl] = useState('');
   const [timer, setTimer] = useState('00:00:00');
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // const [mediaRecorder, setMediaRecorder] = useState(null);
+  // const [isRecording, setIsRecording] = useState(false);
 
   const currentTimer = () => {
     const date = new Date();
@@ -30,9 +37,59 @@ function HomePage() {
 
   startTimer();
 
+  // const handleStartRecording = () => {
+  //   navigator.mediaDevices
+  //     .getUserMedia({ video: true, audio: true })
+  //     .then((stream) => {
+  //       const recorder: MediaRecorder = new MediaRecorder(stream);
+  //       setMediaRecorder(recorder);
+
+  //       recorder.start();
+  //       setIsRecording(true);
+
+  //       recorder.ondataavailable = (event) => {
+  //         // 녹화된 데이터를 서버로 전송하는 코드 작성
+  //         sendDataToServer(event.data);
+  //       };
+  //     })
+  //     .catch((error) => {
+  //       console.error('Error accessing webcam:', error);
+  //     });
+  // };
+
+  // const handleStopRecording = () => {
+  //   if (mediaRecorder) {
+  //     mediaRecorder.stop();
+  //     setIsRecording(false);
+  //   }
+  // };
+
+  // const sendDataToServer = (data: any) => {
+  //   setVideoUrl(URL.createObjectURL(data));
+  //   console.log(videoUrl);
+  //   // 녹화된 데이터를 서버로 전송하는 코드 작성
+  //   // 예를 들어, Fetch API를 사용하여 데이터를 서버로 보낼 수 있습니다.
+  //   fetch('/upload', {
+  //     method: 'POST',
+  //     body: data,
+  //   })
+  //     .then((response) => {
+  //       console.log(response);
+  //       console.log('Video uploaded successfully');
+  //     })
+  //     .catch((error) => {
+  //       console.error('Error uploading video:', error);
+  //     });
+  // };
+
   return (
     <StMain>
-      <StAside>
+      <StAside
+        onClick={() => {
+          console.log(isModalOpen);
+          setIsModalOpen(true);
+        }}
+      >
         <IcLogo />
         <StMenuWrapper>
           <button type="button">DashBoard</button>
@@ -52,18 +109,24 @@ function HomePage() {
           {/* <Video src={demo} /> */}
           {/* <BackgroundVideo src={demo}></BackgroundVideo> */}
           <RealTimeDetection setIsModalOpen={setIsModalOpen} />
+          {/* <Video
+            autoPlay={true}
+            muted
+            loop={false}
+            controls={false}
+            src={demo}
+          /> */}
+          {/* <Webcam ref={webcamRef} />; */}
+          {/* {isRecording ? (
+            <button onClick={handleStopRecording}>Stop Recording</button>
+          ) : (
+            <button onClick={handleStartRecording}>Start Recording</button>
+          )}  */}
           <StCallPolice>
-            <button type="button">경찰연동</button>
-            <button
-              type="button"
-              onClick={() => {
-                console.log(isModalOpen);
-                setIsModalOpen(true);
-              }}
-            >
+            {/* <button type="button">
               수동으로 <br />
               푸시알림 보내기
-            </button>
+            </button> */}
           </StCallPolice>
         </StVideoWrapper>
       </div>
