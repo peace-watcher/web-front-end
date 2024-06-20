@@ -4,10 +4,10 @@ import { useState, useRef } from 'react';
 import styled from 'styled-components';
 import { IcLogo } from '../../../public/assets/icons';
 import SendPushNotificationModal from '../Components/SendPushNotificationModal';
-import BackgroundVideo from 'next-video/background-video';
+// import BackgroundVideo from 'next-video/background-video';
 import RealTimeDetection from '../Components/RealtimeDetection';
-import Video from 'next-video';
-import demo from 'https://peacewatcher.s3.ap-northeast-2.amazonaws.com/SeoHyeonStation_demo.mp4';
+// import Video from 'next-video';
+// import demo from 'https://peacewatcher.s3.ap-northeast-2.amazonaws.com/SeoHyeonStation_demo.mp4';
 // import Webcam from 'react-webcam';
 
 function HomePage() {

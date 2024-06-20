@@ -1,5 +1,3 @@
-// components/RealTimeDetection.tsx
-
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
@@ -15,7 +13,7 @@ const RealTimeDetection: React.FC<RealTimeDetectionProps> = ({
   const wsRef = useRef<WebSocket | null>(null);
 
   useEffect(() => {
-    const ws = new WebSocket('ws://107.167.183.252:8000/ws');
+    const ws = new WebSocket('ws://35.234.40.146:8000/ws');
     wsRef.current = ws;
 
     ws.onopen = () => {
@@ -27,10 +25,13 @@ const RealTimeDetection: React.FC<RealTimeDetectionProps> = ({
       if (imgRef.current) {
         imgRef.current.src = 'data:image/jpeg;base64,' + event.data;
       }
+      console.log('event.data', event.data);
 
+      // console.log('event.data:', event.data);
       // 특정 조건 충족 시 모달 창을 띄움
       if (
-        event.data.includes('knife') ||
+        event.data === 'ALERT' ||
+        event.data.includes('a knife') ||
         event.data.includes('fallen person') ||
         event.data.includes('fork') ||
         event.data.includes('person running away')
@@ -92,8 +93,6 @@ const RealTimeDetection: React.FC<RealTimeDetectionProps> = ({
           const dataUrl = canvas.toDataURL('image/jpeg', 0.5);
           const data = dataUrl.split(',')[1];
 
-          console.log('Captured frame length:', data.length);
-
           if (wsRef.current && wsRef.current.readyState === WebSocket.OPEN) {
             wsRef.current.send(data);
           }
@@ -130,14 +129,14 @@ const RealTimeDetection: React.FC<RealTimeDetectionProps> = ({
 export default RealTimeDetection;
 
 const StWrapper = styled.div`
-  padding: 5rem 5rem 5rem 10rem;
+   padding: 1rem 1rem 1rem 2rem; 
 `;
 const StVideo = styled.video`
   /* visibility: hidden; */
 `;
 
 const StImage = styled.img`
-  width: 80%;
+  width: 100%;
   height: auto;
   /* height: 480px; */
   margin-bottom: 30rem;

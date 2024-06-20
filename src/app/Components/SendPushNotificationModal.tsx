@@ -1,7 +1,7 @@
 'use client';
 
+import { useEffect } from 'react';
 import { postPushNotificationTrigger } from '../api/postPushNotificationTrigger';
-
 import styled from 'styled-components';
 // import { IcDeleteModal } from '../../../public/assets/icons';
 
@@ -20,6 +20,17 @@ export default function SendPushNotificationModal(
     console.log(result);
     setIsOpen(false);
   };
+
+  // useEffect(() => {
+  //   if (isOpen) {
+  //     const timer = setTimeout(() => {
+  //       handlePushAgreement();
+  //     }, 2000);
+
+  //     // 타이머를 정리하는 클린업 함수
+  //     return () => clearTimeout(timer);
+  //   }
+  // }, [isOpen]);
 
   return isOpen ? (
     <>
@@ -124,7 +135,7 @@ const StButtonWrapper = styled.div`
     background-color: black;
   }
 
-  >button: nth-of-type(1) {
+  > button:nth-of-type(1) {
     background-color: red;
   }
 `;
